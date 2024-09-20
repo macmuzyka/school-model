@@ -34,4 +34,13 @@ public class GradeRaw {
     public void setStudentCode(String studentCode) {
         this.studentCode = studentCode;
     }
+
+    @Override
+    public String toString() {
+        return "GradeRaw{" +
+                "grade=" + grade +
+                ", subject='" + subject + '\'' +
+                ", studentCode='" + studentCode + '\'' +
+                '}';
+    }
 }
