@@ -46,4 +46,14 @@ public class SubjectGradesDTO {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+    @Override
+    public String toString() {
+        return "SubjectGradesDTO{" +
+                "studentName='" + studentName + '\'' +
+                ", subject='" + subject + '\'' +
+                ", grades='" + grades + '\'' +
+                ", averageGrade=" + averageGrade +
+                '}';
+    }
 }
