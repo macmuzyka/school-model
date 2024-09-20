@@ -1,0 +1,79 @@
+package com.schoolmodel.model;
+
+import jakarta.persistence.*;
+
+import java.util.Collections;
+import java.util.List;
+
+@Entity
+@Table(name = "school_class")
+public class SchoolClass {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "school_class_id")
+    private List<Student> classStudents;
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "school_class_id")
+    private List<Subject> classSubjects;
+
+    public SchoolClass(String name, List<Subject> classSubjects) {
+        this.name = name;
+        this.classStudents = Collections.emptyList();
+        this.classSubjects = classSubjects;
+    }
+
+    public SchoolClass() {}
+
+    public boolean assignStudent2Class(Student student) {
+        return classStudents.add(student);
+    }
+
+    @Override
+    public String toString() {
+        return "SchoolClass{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", classStudents=" + classStudents +
+                ", classSubjects=" + classSubjects +
+                '}';
+    }
+
+    public String className() {
+        return this.name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Student> getClassStudents() {
+        return classStudents;
+    }
+
+    public void setClassStudents(List<Student> classStudents) {
+        this.classStudents = classStudents;
+    }
+
+    public List<Subject> getClassSubjects() {
+        return classSubjects;
+    }
+
+    public void setClassSubjects(List<Subject> classSubjects) {
+        this.classSubjects = classSubjects;
+    }
+}
