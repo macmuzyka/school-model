@@ -1,12 +1,14 @@
 package com.schoolmodel.model;
 
+import java.math.BigDecimal;
+
 public class SubjectGradesDTO {
     private String studentName;
     private String subject;
     private String grades;
-    private double averageGrade;
+    private BigDecimal averageGrade;
 
-    public SubjectGradesDTO(String studentName, String subject, String grades, double averageGrade) {
+    public SubjectGradesDTO(String studentName, String subject, String grades, BigDecimal averageGrade) {
         this.studentName = studentName;
         this.subject = subject;
         this.grades = grades;
@@ -29,11 +31,11 @@ public class SubjectGradesDTO {
         this.grades = grades;
     }
 
-    public double getAverageGrade() {
+    public BigDecimal getAverageGrade() {
         return averageGrade;
     }
 
-    public void setAverageGrade(double averageGrade) {
+    public void setAverageGrade(BigDecimal averageGrade) {
         this.averageGrade = averageGrade;
     }
 
