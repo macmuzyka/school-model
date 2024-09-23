@@ -11,6 +11,9 @@ public class GradeRaw {
         this.studentCode = studentCode;
     }
 
+    public GradeRaw() {
+    }
+
     public int getGrade() {
         return grade;
     }
