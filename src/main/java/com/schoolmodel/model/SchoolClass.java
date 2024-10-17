@@ -11,6 +11,7 @@ public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
     @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
     @JoinColumn(name = "school_class_id")
@@ -38,6 +39,14 @@ public class SchoolClass {
                 ", name='" + name + '\'' +
                 ", classStudents=" + classStudents +
                 ", classSubjects=" + classSubjects +
+                '}';
+    }
+
+    public String simpleDisplay() {
+        return "SchoolClass{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", classStudents=" + classStudents.stream().map(Student::simpleDisplay).toList() +
                 '}';
     }
 

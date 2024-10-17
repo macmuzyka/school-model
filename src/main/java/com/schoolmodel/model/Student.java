@@ -12,6 +12,7 @@ public class Student {
     private long id;
     private String name;
     private String surname;
+    @Column(nullable = false, unique = true)
     private String code;
     @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
@@ -33,6 +34,14 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
                 ", studentGrades=" + studentGrades +
+                '}';
+    }
+
+    public String simpleDisplay() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", code='" + code + '\'' +
                 '}';
     }
 
