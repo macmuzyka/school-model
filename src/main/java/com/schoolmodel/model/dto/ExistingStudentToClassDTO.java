@@ -16,4 +16,12 @@ public class ExistingStudentToClassDTO {
     public long getSchoolClassId() {
         return schoolClassId;
     }
+
+    public String component1() {
+        return studentCode;
+    }
+
+    public long component2() {
+        return schoolClassId;
+    }
 }

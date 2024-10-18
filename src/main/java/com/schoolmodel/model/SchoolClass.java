@@ -2,7 +2,7 @@ package com.schoolmodel.model;
 
 import jakarta.persistence.*;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +22,7 @@ public class SchoolClass {
 
     public SchoolClass(String name, List<Subject> classSubjects) {
         this.name = name;
-        this.classStudents = Collections.emptyList();
+        this.classStudents = new ArrayList<>();
         this.classSubjects = classSubjects;
     }
 
