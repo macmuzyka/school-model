@@ -1,7 +1,6 @@
 package com.schoolmodel.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
