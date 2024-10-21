@@ -1,6 +1,6 @@
 package com.schoolmodel.model.dto;
 
-import com.schoolmodel.model.Student;
+import com.schoolmodel.model.entity.Student;
 
 public class StudentDTO {
     private final String name;
@@ -11,6 +11,15 @@ public class StudentDTO {
         this.name = student.getName();
         this.surname = student.getSurname();
         this.code = student.getCode();
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDTO{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", code='" + code + '\'' +
+                '}';
     }
 
     public String getName() {

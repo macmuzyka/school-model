@@ -1,5 +1,6 @@
 package com.schoolmodel.model.dto;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ClassWithStudentsDTO {

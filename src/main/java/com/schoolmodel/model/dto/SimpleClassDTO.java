@@ -1,6 +1,6 @@
 package com.schoolmodel.model.dto;
 
-import com.schoolmodel.model.SchoolClass;
+import com.schoolmodel.model.entity.SchoolClass;
 
 import java.util.List;
 

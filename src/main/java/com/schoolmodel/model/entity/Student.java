@@ -1,8 +1,9 @@
-package com.schoolmodel.model;
+package com.schoolmodel.model.entity;
 
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "student")
@@ -14,14 +15,17 @@ public class Student {
     private String surname;
     @Column(nullable = false, unique = true)
     private String code;
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private List<Grade> studentGrades;
+    //TODO: handle assigned flag across code
+    private boolean assigned;
 
-    public Student(String name, String surname, String code) {
+    public Student(String name, String surname, String code, boolean assigned) {
         this.name = name;
         this.surname = surname;
         this.code = code;
+        this.assigned = assigned;
     }
 
     public Student() {}
@@ -34,6 +38,7 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
                 ", studentGrades=" + studentGrades +
+                ", assigned=" + assigned +
                 '}';
     }
 
@@ -43,6 +48,19 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return code.equals(student.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     public long getId() {
@@ -83,5 +101,13 @@ public class Student {
 
     public void setStudentGrades(List<Grade> studentGrades) {
         this.studentGrades = studentGrades;
+    }
+
+    public boolean isAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
     }
 }

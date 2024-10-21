@@ -1,6 +1,7 @@
-package com.schoolmodel.model;
+package com.schoolmodel.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,10 @@ public class SchoolClass {
     private long id;
     @Column(unique = true)
     private String name;
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
-    private List<Student> classStudents;
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    private List<Student> classStudents = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
     private List<Subject> classSubjects;
 

@@ -1,12 +1,16 @@
 package com.schoolmodel.model.dto;
 
-public class ExistingStudentToClassDTO {
-    private String studentCode;
-    private long schoolClassId;
+import com.schoolmodel.model.enums.ClassAction;
 
-    public ExistingStudentToClassDTO(String studentCode, long schoolClassId) {
+public class ExistingStudentToClassDTO {
+    private final String studentCode;
+    private final long schoolClassId;
+    private final ClassAction action;
+
+    public ExistingStudentToClassDTO(String studentCode, long schoolClassId, ClassAction action) {
         this.studentCode = studentCode;
         this.schoolClassId = schoolClassId;
+        this.action = action;
     }
 
     public String getStudentCode() {
@@ -17,11 +21,19 @@ public class ExistingStudentToClassDTO {
         return schoolClassId;
     }
 
+    public ClassAction getAction() {
+        return action;
+    }
+
     public String component1() {
         return studentCode;
     }
 
     public long component2() {
         return schoolClassId;
+    }
+
+    public ClassAction component3() {
+        return action;
     }
 }
