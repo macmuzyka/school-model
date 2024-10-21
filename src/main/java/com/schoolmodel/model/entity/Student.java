@@ -1,12 +1,17 @@
 package com.schoolmodel.model.entity;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "student")
+@EntityListeners(AuditingEntityListener.class)
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +24,15 @@ public class Student {
     @JoinColumn(name = "student_id")
     private List<Grade> studentGrades;
     //TODO: handle assigned flag across code
+    @Column(nullable = true)
     private boolean assigned;
+
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    private LocalDateTime lastUpdatedAt;
 
     public Student(String name, String surname, String code, boolean assigned) {
         this.name = name;
@@ -109,5 +122,21 @@ public class Student {
 
     public void setAssigned(boolean assigned) {
         this.assigned = assigned;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getLastUpdatedAt() {
+        return lastUpdatedAt;
+    }
+
+    public void setLastUpdatedAt(LocalDateTime lastUpdatedAt) {
+        this.lastUpdatedAt = lastUpdatedAt;
     }
 }
