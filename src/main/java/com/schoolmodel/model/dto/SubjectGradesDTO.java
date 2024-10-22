@@ -3,6 +3,8 @@ package com.schoolmodel.model.dto;
 import com.opencsv.bean.CsvBindByName;
 import com.schoolmodel.model.CsvBean;
 
+import java.math.BigDecimal;
+
 public class SubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Student Name")
     private String studentName;
@@ -11,9 +13,9 @@ public class SubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Grades")
     private String grades;
     @CsvBindByName(column = "Average Grade")
-    private double averageGrade;
+    private BigDecimal averageGrade;
 
-    public SubjectGradesDTO(String studentName, String subject, String grades, double averageGrade) {
+    public SubjectGradesDTO(String studentName, String subject, String grades, BigDecimal averageGrade) {
         this.studentName = studentName;
         this.subject = subject;
         this.grades = grades;
@@ -36,11 +38,11 @@ public class SubjectGradesDTO extends CsvBean {
         this.grades = grades;
     }
 
-    public double getAverageGrade() {
+    public BigDecimal getAverageGrade() {
         return averageGrade;
     }
 
-    public void setAverageGrade(double averageGrade) {
+    public void setAverageGrade(BigDecimal averageGrade) {
         this.averageGrade = averageGrade;
     }
 
