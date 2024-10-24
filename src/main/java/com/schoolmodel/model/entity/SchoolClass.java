@@ -1,8 +1,8 @@
-package com.schoolmodel.model;
+package com.schoolmodel.model.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,17 +11,18 @@ public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
-    private List<Student> classStudents;
-    @OneToMany(orphanRemoval = true, cascade = {CascadeType.ALL})
+    private List<Student> classStudents = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
     private List<Subject> classSubjects;
 
     public SchoolClass(String name, List<Subject> classSubjects) {
         this.name = name;
-        this.classStudents = Collections.emptyList();
+        this.classStudents = new ArrayList<>();
         this.classSubjects = classSubjects;
     }
 
@@ -38,6 +39,14 @@ public class SchoolClass {
                 ", name='" + name + '\'' +
                 ", classStudents=" + classStudents +
                 ", classSubjects=" + classSubjects +
+                '}';
+    }
+
+    public String simpleDisplay() {
+        return "SchoolClass{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", classStudents=" + classStudents.stream().map(Student::simpleDisplay).toList() +
                 '}';
     }
 
