@@ -6,11 +6,13 @@ public class StudentDTO {
     private final String name;
     private final String surname;
     private final String code;
+    private final boolean assigned;
 
     public StudentDTO(Student student) {
         this.name = student.getName();
         this.surname = student.getSurname();
         this.code = student.getCode();
+        this.assigned = student.isAssigned();
     }
 
     @Override
@@ -32,5 +34,9 @@ public class StudentDTO {
 
     public String getCode() {
         return code;
+    }
+
+    public boolean isAssigned() {
+        return assigned;
     }
 }

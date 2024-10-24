@@ -23,9 +23,8 @@ public class Student {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private List<Grade> studentGrades;
-    //TODO: handle assigned flag across code
-    @Column(nullable = true)
     private boolean assigned;
+    //TODO: students age!
 
     @CreatedDate
     @Column(updatable = false)
