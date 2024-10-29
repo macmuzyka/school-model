@@ -5,7 +5,10 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,7 +27,8 @@ public class Student {
     @JoinColumn(name = "student_id")
     private List<Grade> studentGrades;
     private boolean assigned;
-    //TODO: students age!
+    @Column(nullable = false)
+    private LocalDate birthDate;
 
     @CreatedDate
     @Column(updatable = false)
@@ -33,10 +37,11 @@ public class Student {
     @LastModifiedDate
     private LocalDateTime lastUpdatedAt;
 
-    public Student(String name, String surname, String code, boolean assigned) {
+    public Student(String name, String surname, String code, LocalDate birthDate, boolean assigned) {
         this.name = name;
         this.surname = surname;
         this.code = code;
+        this.birthDate = birthDate;
         this.assigned = assigned;
     }
 
@@ -137,5 +142,21 @@ public class Student {
 
     public void setLastUpdatedAt(LocalDateTime lastUpdatedAt) {
         this.lastUpdatedAt = lastUpdatedAt;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public int getAge() {
+        return calculateAge();
+    }
+
+    private int calculateAge() {
+        return Period.between(this.birthDate, LocalDate.now()).getYears();
     }
 }

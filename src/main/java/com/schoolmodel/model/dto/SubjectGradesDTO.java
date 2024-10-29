@@ -3,8 +3,6 @@ package com.schoolmodel.model.dto;
 import com.opencsv.bean.CsvBindByName;
 import com.schoolmodel.model.CsvBean;
 
-import java.math.BigDecimal;
-import java.util.Comparator;
 
 public class SubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Student Name")
@@ -14,11 +12,9 @@ public class SubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Grades")
     private String grades;
     @CsvBindByName(column = "Average Grade")
-    private BigDecimal averageGrade;
+    private String averageGrade;
 
-    public static Comparator<SubjectGradesDTO> compareAverageGrade = Comparator.comparingDouble(sg -> sg.averageGrade.doubleValue());
-
-    public SubjectGradesDTO(String studentName, String subject, String grades, BigDecimal averageGrade) {
+    public SubjectGradesDTO(String studentName, String subject, String grades, String averageGrade) {
         this.studentName = studentName;
         this.subject = subject;
         this.grades = grades;
@@ -41,11 +37,11 @@ public class SubjectGradesDTO extends CsvBean {
         this.grades = grades;
     }
 
-    public BigDecimal getAverageGrade() {
+    public String getAverageGrade() {
         return averageGrade;
     }
 
-    public void setAverageGrade(BigDecimal averageGrade) {
+    public void setAverageGrade(String averageGrade) {
         this.averageGrade = averageGrade;
     }
 
