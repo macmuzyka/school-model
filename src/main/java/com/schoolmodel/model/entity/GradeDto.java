@@ -1,17 +1,17 @@
 package com.schoolmodel.model.entity;
 
-public class GradeRaw {
+public class GradeDto {
     private int grade;
     private String subject;
     private String studentCode;
 
-    public GradeRaw(int grade, String subject, String studentCode) {
+    public GradeDto(int grade, String subject, String studentCode) {
         this.grade = grade;
         this.subject = subject;
         this.studentCode = studentCode;
     }
 
-    public GradeRaw() {
+    public GradeDto() {
     }
 
     public int getGrade() {
@@ -40,7 +40,7 @@ public class GradeRaw {
 
     @Override
     public String toString() {
-        return "GradeRaw{" +
+        return "GradeDto{" +
                 "grade=" + grade +
                 ", subject='" + subject + '\'' +
                 ", studentCode='" + studentCode + '\'' +
