@@ -15,7 +15,7 @@ public class SchoolClass {
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
-    private List<Student> classStudents = new ArrayList<>();
+    private List<Student> classStudents;
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id")
     private List<Subject> classSubjects;
