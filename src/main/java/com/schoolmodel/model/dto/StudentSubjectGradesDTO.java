@@ -4,7 +4,7 @@ import com.opencsv.bean.CsvBindByName;
 import com.schoolmodel.model.CsvBean;
 
 
-public class SubjectGradesDTO extends CsvBean {
+public class StudentSubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Student Name")
     private String studentName;
     @CsvBindByName(column = "Subject")
@@ -14,7 +14,7 @@ public class SubjectGradesDTO extends CsvBean {
     @CsvBindByName(column = "Average Grade")
     private String averageGrade;
 
-    public SubjectGradesDTO(String studentName, String subject, String grades, String averageGrade) {
+    public StudentSubjectGradesDTO(String studentName, String subject, String grades, String averageGrade) {
         this.studentName = studentName;
         this.subject = subject;
         this.grades = grades;

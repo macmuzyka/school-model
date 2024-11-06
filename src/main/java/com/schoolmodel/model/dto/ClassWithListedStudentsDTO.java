@@ -2,12 +2,12 @@ package com.schoolmodel.model.dto;
 
 import java.util.List;
 
-public class ClassWithStudentsDTO {
+public class ClassWithListedStudentsDTO {
     private long numberOfStudents;
     private String className;
     private List<String> studentNames;
 
-    public ClassWithStudentsDTO(long numberOfStudents, String className, List<String> studentNames) {
+    public ClassWithListedStudentsDTO(long numberOfStudents, String className, List<String> studentNames) {
         this.numberOfStudents = numberOfStudents;
         this.className = className;
         this.studentNames = studentNames;
