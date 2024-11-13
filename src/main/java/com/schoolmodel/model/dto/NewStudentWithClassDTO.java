@@ -5,14 +5,16 @@ import java.time.LocalDate;
 public class NewStudentWithClassDTO {
     private String name;
     private String surname;
+    private String identifier;
     private String className;
     private LocalDate birthDate;
 
     public NewStudentWithClassDTO() {}
 
-    public NewStudentWithClassDTO(String name, String surname, String className, LocalDate birtDate) {
+    public NewStudentWithClassDTO(String name, String surname, String identifier, String className, LocalDate birtDate) {
         this.name = name;
         this.surname = surname;
+        this.identifier = identifier;
         this.className = className;
         this.birthDate = birtDate;
     }
@@ -31,5 +33,9 @@ public class NewStudentWithClassDTO {
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public String getIdentifier() {
+        return identifier;
     }
 }
