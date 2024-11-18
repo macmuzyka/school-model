@@ -51,31 +51,31 @@ public abstract class AbstractStudentEntity {
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
                 ", identifier='" + identifier + '\'' +
-//                ", studentGrades=" + studentGrades +
                 ", assigned=" + assigned +
                 '}';
     }
 
     public String simpleDisplay() {
-        return "Student{" +
-                "name='" + name + '\'' +
+        return "[name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
-                ", identifier=" + identifier +
-                '}';
+                ", identifier=" + identifier + "]";
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractStudentEntity student = (Student) o;
-        return Objects.equals(identifier, student.identifier);
+        AbstractStudentEntity that = (AbstractStudentEntity) o;
+        return Objects.equals(name, that.name)
+                && Objects.equals(surname, that.surname)
+                && Objects.equals(identifier, that.identifier)
+                && Objects.equals(birthDate, that.birthDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(identifier);
+        return Objects.hash(name, surname, identifier, birthDate);
     }
 
     public long getId() {
