@@ -1,6 +1,7 @@
 package com.schoolmodel.model.dto;
 
 import com.schoolmodel.model.entity.Student;
+import com.schoolmodel.model.entity.StudentDuplicateError;
 import com.schoolmodel.model.entity.StudentInsertError;
 
 import java.time.LocalDate;
@@ -25,14 +26,24 @@ public class StudentDTO {
         this.birthDate = student.getBirthDate();
     }
 
-    public StudentDTO(StudentInsertError student) {
-        this.id = student.getId();
-        this.name = student.getName();
-        this.surname = student.getSurname();
-        this.identifier = student.getIdentifier();
-        this.code = student.getCode();
-//        this.assigned = student.isAssigned();
-        this.birthDate = student.getBirthDate();
+    public StudentDTO(StudentInsertError error) {
+        this.id = error.getId();
+        this.name = error.getName();
+        this.surname = error.getSurname();
+        this.identifier = error.getIdentifier();
+        this.code = error.getCode();
+        this.assigned = error.isAssigned();
+        this.birthDate = error.getBirthDate();
+    }
+
+    public StudentDTO(StudentDuplicateError duplicate) {
+        this.id = duplicate.getId();
+        this.name = duplicate.getName();
+        this.surname = duplicate.getSurname();
+        this.identifier = duplicate.getIdentifier();
+        this.code = duplicate.getCode();
+        this.assigned = duplicate.isAssigned();
+        this.birthDate = duplicate.getBirthDate();
     }
 
     public StudentDTO() {
