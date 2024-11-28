@@ -1,14 +1,22 @@
 package com.schoolmodel.model.dto;
 
+import com.schoolmodel.model.entity.Grade;
+
 public class GradeDTO {
     private int value;
-    private String subject;
-    private String studentCode;
+    private Long subjectId;
+    private Long studentId;
 
-    public GradeDTO(int value, String subject, String studentCode) {
+    public GradeDTO(int value, Long subjectId, Long studentId) {
         this.value = value;
-        this.subject = subject;
-        this.studentCode = studentCode;
+        this.subjectId = subjectId;
+        this.studentId = studentId;
+    }
+
+    public GradeDTO(Grade grade) {
+        this.value = grade.getGradeValue();
+        this.subjectId = grade.getSubject().getId();
+        this.studentId = grade.getStudent().getId();
     }
 
     public GradeDTO() {
@@ -22,28 +30,20 @@ public class GradeDTO {
         this.value = value;
     }
 
-    public String getSubject() {
-        return subject;
+    public Long getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getStudentCode() {
-        return studentCode;
-    }
-
-    public void setStudentCode(String studentCode) {
-        this.studentCode = studentCode;
+    public Long getStudentId() {
+        return studentId;
     }
 
     @Override
     public String toString() {
-        return "GradeDto{" +
-                "grade=" + value +
-                ", subject='" + subject + '\'' +
-                ", studentCode='" + studentCode + '\'' +
+        return "GradeDTO{" +
+                "value=" + value +
+                ", subjectId=" + subjectId +
+                ", studentId=" + studentId +
                 '}';
     }
 }

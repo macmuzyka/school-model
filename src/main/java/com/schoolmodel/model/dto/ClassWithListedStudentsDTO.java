@@ -5,12 +5,12 @@ import java.util.List;
 public class ClassWithListedStudentsDTO {
     private long numberOfStudents;
     private String className;
-    private List<String> studentNames;
+    private List<String> students;
 
-    public ClassWithListedStudentsDTO(long numberOfStudents, String className, List<String> studentNames) {
+    public ClassWithListedStudentsDTO(long numberOfStudents, String className, List<String> students) {
         this.numberOfStudents = numberOfStudents;
         this.className = className;
-        this.studentNames = studentNames;
+        this.students = students;
     }
 
     public long getNumberOfStudents() {
@@ -29,11 +29,11 @@ public class ClassWithListedStudentsDTO {
         this.className = className;
     }
 
-    public List<String> getStudentNames() {
-        return studentNames;
+    public List<String> getStudents() {
+        return students;
     }
 
-    public void setStudentNames(List<String> studentNames) {
-        this.studentNames = studentNames;
+    public void setStudents(List<String> students) {
+        this.students = students;
     }
 }

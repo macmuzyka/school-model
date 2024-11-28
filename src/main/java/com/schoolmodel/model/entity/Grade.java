@@ -17,7 +17,7 @@ public class Grade {
     private long id;
     private Integer gradeValue;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id", nullable = false)
     @JsonIgnore
     private Student student;
