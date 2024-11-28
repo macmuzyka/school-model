@@ -13,6 +13,15 @@ public class FileProviderResponse {
         this.message = message;
     }
 
+    @Override
+    public String toString() {
+        return "FileProviderResponse{" +
+                "fileStatus=" + fileStatus +
+                ", totalRecords=" + totalRecords +
+                ", message='" + message + '\'' +
+                '}';
+    }
+
     public FileStatus getFileStatus() {
         return fileStatus;
     }

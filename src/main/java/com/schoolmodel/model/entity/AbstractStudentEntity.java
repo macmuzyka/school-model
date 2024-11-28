@@ -7,7 +7,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
-import java.util.Objects;
 
 @MappedSuperclass
 public abstract class AbstractStudentEntity {
@@ -60,22 +59,6 @@ public abstract class AbstractStudentEntity {
                 ", surname='" + surname + '\'' +
                 ", code='" + code + '\'' +
                 ", identifier=" + identifier + "]";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbstractStudentEntity that = (AbstractStudentEntity) o;
-        return Objects.equals(name, that.name)
-                && Objects.equals(surname, that.surname)
-                && Objects.equals(identifier, that.identifier)
-                && Objects.equals(birthDate, that.birthDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, surname, identifier, birthDate);
     }
 
     public long getId() {
